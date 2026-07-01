@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Website Design — sujalhere Creative Studio</title>
+<meta name="description" content="Website design work by sujalhere — brand sites, e-commerce, landing pages and web apps designed and built to convert." />
+<meta property="og:title" content="Website Design — sujalhere" />
+<meta property="og:description" content="Websites designed and built to convert." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<script>
+  document.documentElement.classList.add('js');
+  try {
+    if (!sessionStorage.getItem('introSeen') &&
+        !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('intro-lock');
+    }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<div class="intro" id="intro" role="presentation">
+  <div class="intro-logo">
+    <div class="intro-wm" aria-label="sujalhere">
+      <span class="wm-ser" data-split>sujal</span><span class="wm-bld" data-split>here</span>
+    </div>
+    <div class="intro-tag" data-split>Creative Studio</div>
+  </div>
+</div>
+
+<canvas id="beams" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="index.html" class="brand" aria-label="sujalhere — Creative Studio">
+    <span class="wm-ser">sujal</span><span class="wm-bld">here</span>
+    <small>Creative Studio</small>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="motion.html">Motion</a>
+    <a href="index.html#about">About</a>
+    <a href="mailto:sujalhere0@gmail.com" class="btn btn-primary nav-cta">Let's talk <span class="arr">→</span></a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span></button>
+</header>
+
+<main id="top">
+<section class="pad wrap subhead">
+  <a href="index.html" class="back-link" data-reveal>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> Back home
+  </a>
+
+  <div class="section-head" data-reveal style="margin-top:22px">
+    <div class="eyebrow">Website Design</div>
+    <h2>Websites we've <em>designed &amp; shipped</em></h2>
+    <p class="lead">Conversion-focused, beautifully built sites for brands that want to look the part — brand sites, storefronts, landing pages and web apps.</p>
+  </div>
+
+  <div class="carousel" data-carousel data-reveal>
+    <div class="carousel-viewport">
+      <div class="carousel-track">
+        <!-- SAMPLE projects (imaginary brands + stock imagery) — replace with your real
+             client work, screenshots (assets/work-x.jpg) and live links when ready. -->
+        <article class="proj slide">
+          <a href="#" target="_blank" rel="noopener">
+            <div class="proj-shot"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&h=750&q=70" alt="Lumen Studio agency website" loading="lazy" /></div>
+            <div class="proj-body">
+              <div class="proj-top"><h3>Lumen&nbsp;Studio</h3><span class="go">↗</span></div>
+              <p>Brand identity and a custom-built site for a design agency — fluid motion, a CMS they actually enjoy, and 2× more inbound enquiries.</p>
+              <div class="tags"><span class="tag-chip web">Brand</span><span class="tag-chip">Web Design</span><span class="tag-chip">Development</span></div>
+            </div>
+          </a>
+        </article>
+
+        <article class="proj slide">
+          <a href="#" target="_blank" rel="noopener">
+            <div class="proj-shot"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&h=750&q=70" alt="Botanica skincare store" loading="lazy" /></div>
+            <div class="proj-body">
+              <div class="proj-top"><h3>Botanica</h3><span class="go">↗</span></div>
+              <p>A conversion-first storefront for a skincare label — streamlined product pages and a faster checkout that grew online revenue 38%.</p>
+              <div class="tags"><span class="tag-chip web">E-commerce</span><span class="tag-chip">Shopify</span><span class="tag-chip">Web Design</span></div>
+            </div>
+          </a>
+        </article>
+
+        <article class="proj slide">
+          <a href="#" target="_blank" rel="noopener">
+            <div class="proj-shot"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&h=750&q=70" alt="Northpeak SaaS landing page" loading="lazy" /></div>
+            <div class="proj-body">
+              <div class="proj-top"><h3>Northpeak</h3><span class="go">↗</span></div>
+              <p>A launch landing page for a B2B analytics SaaS — sharp positioning, scroll-driven motion, and a waitlist that filled within a week.</p>
+              <div class="tags"><span class="tag-chip web">Landing Page</span><span class="tag-chip">SaaS</span><span class="tag-chip">Web Design</span></div>
+            </div>
+          </a>
+        </article>
+
+        <article class="proj slide">
+          <a href="#" target="_blank" rel="noopener">
+            <div class="proj-shot"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&h=750&q=70" alt="Harvest Table restaurant website" loading="lazy" /></div>
+            <div class="proj-body">
+              <div class="proj-top"><h3>Harvest&nbsp;Table</h3><span class="go">↗</span></div>
+              <p>A warm, image-led site for a farm-to-table restaurant — live online reservations and a menu that genuinely makes you hungry.</p>
+              <div class="tags"><span class="tag-chip web">Web Design</span><span class="tag-chip">Hospitality</span><span class="tag-chip">Reservations</span></div>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+
+    <div class="carousel-ctrl">
+      <div class="carousel-progress" aria-hidden="true"><span></span></div>
+      <div class="carousel-hint"><span class="drag-dot"></span> Drag to explore</div>
+      <div class="carousel-btns">
+        <button class="cbtn" data-dir="prev" aria-label="Previous projects" disabled>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="cbtn" data-dir="next" aria-label="Next projects">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-cross" data-reveal>
+    <a href="motion.html" class="btn btn-ghost">See motion &amp; UGC <span class="arr">→</span></a>
+    <a href="index.html#contact" class="btn btn-primary">Start a project</a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-cta" data-reveal>
+      <div class="foot-cta-left">
+        <span class="eyebrow">Open for new projects</span>
+        <a href="mailto:sujalhere0@gmail.com" class="foot-big">
+          Let's make something
+          <span class="foot-big-row">
+            <em>unforgettable</em>
+            <svg class="foot-arrow" viewBox="0 0 24 24" width="0.9em" height="0.9em" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-grid">
+      <div class="foot-brand" data-reveal>
+        <a href="index.html" class="brand" aria-label="sujalhere — Creative Studio">
+          <span class="wm-ser">sujal</span><span class="wm-bld">here</span>
+          <small>Creative Studio</small>
+        </a>
+        <p>A lean creative studio crafting websites and motion / UGC commercials for brands worldwide.</p>
+        <div class="foot-status"><span class="pulse"></span> Available worldwide</div>
+      </div>
+
+      <nav class="foot-col" data-reveal data-delay="1" aria-label="Sections">
+        <span class="foot-h">Explore</span>
+        <a href="work.html">Web Design</a>
+        <a href="motion.html">Motion &amp; UGC</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Capabilities</a>
+        <a href="index.html#certs">Credentials</a>
+      </nav>
+
+      <nav class="foot-col" data-reveal data-delay="2" aria-label="Connect">
+        <span class="foot-h">Connect</span>
+        <a href="mailto:sujalhere0@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/connectwithsujal" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="index.html#contact">Start a project</a>
+      </nav>
+
+      <div class="foot-col foot-say" data-reveal data-delay="3">
+        <span class="foot-h">Say hello</span>
+        <a href="mailto:sujalhere0@gmail.com" class="foot-mail">sujalhere0@gmail.com</a>
+        <p>Replies within a day, wherever you are.</p>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 Sujal Kumar Kushwaha</span>
+      <span class="foot-made">Web Design · Motion · UGC</span>
+      <a href="#top" class="to-top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/beams.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>sujalhere — Creative Studio · Web Design & Motion</title>
+<meta name="description" content="sujalhere — a creative studio led by product designer Sujal Kushwaha, crafting websites and motion / UGC commercials for brands worldwide." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="sujalhere — Creative Studio" />
+<meta property="og:description" content="Websites & motion that brands remember." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<!-- mark JS active + lock scroll for the intro before first paint (no flash) -->
+<script>
+  document.documentElement.classList.add('js');
+  try {
+    if (!sessionStorage.getItem('introSeen') &&
+        !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('intro-lock');
+    }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<!-- ============ INTRO OVERLAY (logo reveal) ============ -->
+<div class="intro" id="intro" role="presentation">
+  <div class="intro-logo">
+    <div class="intro-wm" aria-label="sujalhere">
+      <span class="wm-ser" data-split>sujal</span><span class="wm-bld" data-split>here</span>
+    </div>
+    <div class="intro-tag" data-split>Creative Studio</div>
+  </div>
+</div>
+
+<canvas id="beams" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="sujalhere — Creative Studio">
+    <span class="wm-ser">sujal</span><span class="wm-bld">here</span>
+    <small>Creative Studio</small>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="mailto:sujalhere0@gmail.com" class="btn btn-primary nav-cta">Let's talk <span class="arr">→</span></a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span></button>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO (minimal) ============ -->
+<section class="hero-min" id="home">
+  <div class="wrap mh">
+
+    <div class="mh-top" data-reveal>
+      <span class="eyebrow">Creative Studio · Web &amp; Motion</span>
+    </div>
+
+    <!-- editorial split: words flank the portrait. The real, readable heading is
+         the sr-only <h1>; the flanking words are decorative + animated. -->
+    <div class="mh-stage">
+      <h1 class="sr-only">We make brands move.</h1>
+
+      <div class="mh-words mh-left" data-reveal aria-hidden="true">
+        <span class="w">We</span>
+        <span class="w">make</span>
+      </div>
+
+      <div class="mh-photo" data-reveal>
+        <span class="mh-ring" aria-hidden="true"></span>
+        <img src="assets/portrait.png" alt="Sujal Kushwaha" />
+      </div>
+
+      <div class="mh-words mh-right" data-reveal aria-hidden="true">
+        <span class="w">brands</span>
+        <span class="w accent">move.</span>
+      </div>
+    </div>
+
+    <div class="mh-foot" data-reveal>
+      <span class="mh-loc"><span class="pulse"></span> Available worldwide</span>
+      <a href="#work" class="mh-scroll">Selected work <span aria-hidden="true">↓</span></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ WORK — WEBSITES ============ -->
+<section class="pad wrap" id="work">
+  <div class="section-head" data-reveal>
+    <div class="eyebrow">01 — What we do</div>
+    <h2>Two crafts, <em>one studio</em></h2>
+    <p class="lead">Pick a direction — websites that convert, or motion that stops the scroll.</p>
+  </div>
+
+  <div class="paths">
+    <a class="path" href="work.html" data-reveal>
+      <div class="path-media">
+        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&h=820&q=72" alt="Website design work" loading="lazy" />
+      </div>
+      <div class="path-body">
+        <span class="path-num">01 — Web</span>
+        <h3>Website Design</h3>
+        <p>Brand sites, e-commerce, landing pages &amp; web apps — designed and built to convert.</p>
+        <span class="path-cta">View websites <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+
+    <a class="path" href="motion.html" data-reveal data-delay="1">
+      <div class="path-media">
+        <video src="assets/perfume_ad.mp4" muted loop autoplay playsinline preload="metadata"></video>
+      </div>
+      <div class="path-body">
+        <span class="path-num">02 — Motion</span>
+        <h3>Motion &amp; UGC</h3>
+        <p>Short-form UGC and motion commercials engineered for social and built to sell.</p>
+        <span class="path-cta">View motion <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="pad wrap" id="about">
+  <div class="about-grid">
+    <div class="about-photo" data-reveal data-tilt>
+      <img src="assets/about.png" alt="Sujal Kumar Kushwaha" />
+    </div>
+    <div class="about-copy" data-reveal data-delay="1">
+      <div class="eyebrow" style="margin-bottom:22px">Who's behind the work</div>
+      <p>I'm <b>Sujal Kumar Kushwaha</b> — a product designer who runs a lean creative studio at the intersection of <b>design, technology and human behaviour</b>. We build websites that earn attention and motion content that earns clicks.</p>
+      <p>My process is properly user-centered: research, define, design, test — then ship. A background in business administration and years organising large-scale events taught me how to read an audience and deliver under pressure, whatever the timezone.</p>
+      <blockquote class="about-quote">Always learning. Always curious. Always creating.</blockquote>
+      <div class="about-list">
+        <div class="it"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> End-to-end: research → launch</div>
+        <div class="it"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Web design &amp; development</div>
+        <div class="it"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Motion &amp; UGC commercials</div>
+        <div class="it"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> International, remote-ready team</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="pad wrap" id="skills">
+  <div class="section-head" data-reveal>
+    <div class="eyebrow">02 — Capabilities</div>
+    <h2>Tools &amp; <em>craft</em></h2>
+    <p class="lead">The kit and methods behind every project — from whiteboard to high-fidelity build.</p>
+  </div>
+
+  <!-- TOOLS — icon, professional descriptor, animated proficiency bar -->
+  <div class="cap-label" data-reveal>The toolkit</div>
+  <div class="cap-tools">
+    <article class="tool" data-reveal style="--lvl:78%">
+      <div class="tool-ic">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3h3v6H9a3 3 0 1 1 0-6Z"/><path d="M12 3h0a3 3 0 1 1 0 6"/><path d="M9 9h3v6H9a3 3 0 1 1 0-6Z"/><circle cx="15" cy="12" r="3"/><path d="M9 15h3a3 3 0 1 1-3 3v-3Z"/></svg>
+      </div>
+      <div class="tool-meta">
+        <div class="tool-name">Figma <span class="tool-tag">Interface &amp; prototyping</span></div>
+        <p>Wireframes, hi-fidelity prototypes, auto-layout and scalable design systems.</p>
+        <div class="bar"><span></span></div>
+      </div>
+    </article>
+
+    <article class="tool" data-reveal data-delay="1" style="--lvl:72%">
+      <div class="tool-ic">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+      </div>
+      <div class="tool-meta">
+        <div class="tool-name">Miro <span class="tool-tag">Research &amp; mapping</span></div>
+        <p>Affinity maps, user-journey maps and collaborative discovery workshops.</p>
+        <div class="bar"><span></span></div>
+      </div>
+    </article>
+
+    <article class="tool" data-reveal data-delay="2" style="--lvl:90%">
+      <div class="tool-ic">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M15.5 9.5a3.5 3.5 0 1 0 0 5"/></svg>
+      </div>
+      <div class="tool-meta">
+        <div class="tool-name">Canva <span class="tool-tag">Rapid visual production</span></div>
+        <p>Fast, on-brand visuals — decks, posters, social creative and certificates.</p>
+        <div class="bar"><span></span></div>
+      </div>
+    </article>
+
+    <article class="tool" data-reveal data-delay="3" style="--lvl:88%">
+      <div class="tool-ic">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8l8 8M8 8v8M16 8v8"/></svg>
+      </div>
+      <div class="tool-meta">
+        <div class="tool-name">Notion <span class="tool-tag">Systems &amp; documentation</span></div>
+        <p>Design documentation, living systems and a self-managed portfolio.</p>
+        <div class="bar"><span></span></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="cap-bottom">
+    <!-- UX METHODS — animated dual marquee -->
+    <div class="cap-methods" data-reveal>
+      <div class="cap-label">UX methods I run</div>
+      <div class="method-marquee">
+        <div class="method-track">
+          <span class="m">User Research</span><span class="m">Personas</span><span class="m">Empathy Mapping</span><span class="m">Affinity Mapping</span><span class="m">Problem Framing</span><span class="m">HMW Questions</span>
+          <span class="m">User Research</span><span class="m">Personas</span><span class="m">Empathy Mapping</span><span class="m">Affinity Mapping</span><span class="m">Problem Framing</span><span class="m">HMW Questions</span>
+        </div>
+        <div class="method-track rev">
+          <span class="m">Wireframing</span><span class="m">Lo-fi &amp; Hi-fi Prototyping</span><span class="m">Usability Testing</span><span class="m">Journey Mapping</span><span class="m">Design Systems</span><span class="m">Hypothesis Testing</span>
+          <span class="m">Wireframing</span><span class="m">Lo-fi &amp; Hi-fi Prototyping</span><span class="m">Usability Testing</span><span class="m">Journey Mapping</span><span class="m">Design Systems</span><span class="m">Hypothesis Testing</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRENGTHS — statement cards -->
+    <div class="cap-strengths">
+      <article class="strength" data-reveal>
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v6m0 6v6M3 12h6m6 0h6"/><circle cx="12" cy="12" r="3"/></svg>
+        <h4>Systems Thinking</h4>
+        <p>Breaking messy, complex problems into clear, solvable design challenges.</p>
+      </article>
+      <article class="strength" data-reveal data-delay="1">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h4>Leadership</h4>
+        <p>Running a team and coordinating large-scale events under live pressure.</p>
+      </article>
+      <article class="strength" data-reveal data-delay="2">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19l7-7 3 3-7 7-3-3Z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5Z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        <h4>Visual Communication</h4>
+        <p>Telling brand stories through type, layout, art direction and motion.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTS / CREDENTIALS ============ -->
+<section class="pad wrap" id="certs">
+  <div class="section-head" data-reveal>
+    <div class="eyebrow">03 — Credentials</div>
+    <h2>The <em>journey</em> so far</h2>
+    <p class="lead">Education, certification and leadership — the path that shaped how I design and lead.</p>
+  </div>
+
+  <div class="cert-head" data-reveal>
+    <div class="cert-badge">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M8.5 13 7 22l5-3 5 3-1.5-9"/></svg>
+      <div class="g">Google UX Design — Professional Certificate <span>Completed May 2026 · 8-course program</span></div>
+    </div>
+    <a href="https://coursera.org/verify/professional-cert/AFQLJDCSKC3D" target="_blank" rel="noopener" class="btn btn-ghost">Verify certificate ↗</a>
+  </div>
+
+  <!-- JOURNEY TIMELINE — education, certification & leadership, expanded -->
+  <ol class="timeline">
+    <li class="tl-item" data-reveal>
+      <div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-card">
+        <div class="tl-head">
+          <span class="tl-kind">Education</span>
+          <span class="tl-year">2025 — Present</span>
+        </div>
+        <h4>Symbiosis International University</h4>
+        <p>Bachelor of Business Administration — Information Technology (Honours). Building the bridge between business strategy, technology and human-centered design.</p>
+        <div class="tl-tags"><span>Business</span><span>Information Technology</span></div>
+      </div>
+    </li>
+
+    <li class="tl-item" data-reveal>
+      <div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-card is-feature">
+        <div class="tl-head">
+          <span class="tl-kind accent">Certification</span>
+          <span class="tl-year">Completed May 2026</span>
+        </div>
+        <h4>Google UX Design — Professional Certificate</h4>
+        <p>The full 8-course program, end to end: foundations of UX, empathize–define–ideate, wireframing, UX research &amp; usability testing, high-fidelity design in Figma, dynamic UI for the web, and designing for social good.</p>
+        <div class="tl-tags"><span>User Research</span><span>Prototyping</span><span>Usability Testing</span><span>Figma</span></div>
+        <a href="https://coursera.org/verify/professional-cert/AFQLJDCSKC3D" target="_blank" rel="noopener" class="tl-verify">Verify the full certificate <span aria-hidden="true">↗</span></a>
+      </div>
+    </li>
+
+    <li class="tl-item" data-reveal>
+      <div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-card">
+        <div class="tl-head">
+          <span class="tl-kind">Leadership</span>
+          <span class="tl-year">2024 — 2025</span>
+        </div>
+        <h4>IT Head — The Avant-garde Literary Club</h4>
+        <p>Led technology and design for the club: built event systems, coordinated a team and kept everything shipping smoothly under live, high-pressure deadlines.</p>
+        <div class="tl-tags"><span>Team Coordination</span><span>Event Systems</span></div>
+      </div>
+    </li>
+
+    <li class="tl-item" data-reveal>
+      <div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-card">
+        <div class="tl-head">
+          <span class="tl-kind">Leadership</span>
+          <span class="tl-year">2024</span>
+        </div>
+        <h4>Event Organizer — “Poem Saga” &amp; “The Endless Horizon”</h4>
+        <p>Organised large-scale cultural events end to end — branding, logistics, run-of-show and the full audience experience, start to finish.</p>
+        <div class="tl-tags"><span>Branding</span><span>Logistics</span><span>Experience</span></div>
+      </div>
+    </li>
+
+    <li class="tl-item" data-reveal>
+      <div class="tl-rail"><span class="tl-dot"></span></div>
+      <div class="tl-card">
+        <div class="tl-head">
+          <span class="tl-kind">Education</span>
+          <span class="tl-year">2023 — 2025</span>
+        </div>
+        <h4>Global College of Management, Nepal</h4>
+        <p>+2 Management — Business Administration. Where the foundation in business and the curiosity for design first came together.</p>
+        <div class="tl-tags"><span>Management</span><span>Foundations</span></div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="pad wrap" id="testimonials">
+  <div class="section-head" data-reveal>
+    <div class="eyebrow">04 — Testimonials</div>
+    <h2>Kind words from <em>people I've built for</em></h2>
+    <p class="lead">A few notes from founders and marketers I've worked with across the globe.</p>
+  </div>
+
+  <!-- SAMPLE testimonials — replace names/handles/avatars/quotes with real client words when you have them. -->
+  <div class="tweets">
+    <article class="tweet" data-reveal>
+      <div class="tweet-top">
+        <img class="tw-av" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=70" alt="Aarav Mehta" loading="lazy" />
+        <div class="tw-id">
+          <span class="tw-name">Aarav Mehta
+            <svg class="tw-verified" viewBox="0 0 24 24" aria-label="Verified"><circle cx="12" cy="12" r="10" fill="#1d9bf0"/><path d="M9.3 12.4l2 2 3.6-4.3" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="tw-handle">@aaravbuilds</span>
+        </div>
+        <svg class="tw-x" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </div>
+      <p class="tw-body">Our new site from <a href="#">@sujalhere</a> completely changed how people see us — cleaner, faster, and conversions are up ~40%. Research to launch, the whole thing was smooth and genuinely fun. 🙌</p>
+      <div class="tw-foot"><span>3:14 PM · Mar 12, 2026</span></div>
+    </article>
+
+    <article class="tweet" data-reveal data-delay="1">
+      <div class="tweet-top">
+        <img class="tw-av" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=70" alt="Chloe Bennett" loading="lazy" />
+        <div class="tw-id">
+          <span class="tw-name">Chloe Bennett
+            <svg class="tw-verified" viewBox="0 0 24 24" aria-label="Verified"><circle cx="12" cy="12" r="10" fill="#1d9bf0"/><path d="M9.3 12.4l2 2 3.6-4.3" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="tw-handle">@chloegrowth</span>
+        </div>
+        <svg class="tw-x" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </div>
+      <p class="tw-body">The UGC ads <a href="#">@sujalhere</a> produced are outperforming everything else in our feed. Scroll-stopping, on-brand, and they just *get* motion. Already booking the next batch.</p>
+      <div class="tw-foot"><span>9:02 AM · Apr 4, 2026</span></div>
+    </article>
+
+    <article class="tweet" data-reveal data-delay="2">
+      <div class="tweet-top">
+        <img class="tw-av" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&h=160&q=70" alt="Daniel Okoye" loading="lazy" />
+        <div class="tw-id">
+          <span class="tw-name">Daniel Okoye
+            <svg class="tw-verified" viewBox="0 0 24 24" aria-label="Verified"><circle cx="12" cy="12" r="10" fill="#1d9bf0"/><path d="M9.3 12.4l2 2 3.6-4.3" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="tw-handle">@danielokoye</span>
+        </div>
+        <svg class="tw-x" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </div>
+      <p class="tw-body">Worked with <a href="#">@sujalhere</a> across two timezones and it never once felt remote. Sharp design taste, fast turnarounds, and a team that treats your brand like their own. Easy 10/10.</p>
+      <div class="tw-foot"><span>6:48 PM · Feb 20, 2026</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="pad wrap contact" id="contact">
+  <!-- monochrome WebGL plasma backdrop — closing moment, behind the CTA -->
+  <canvas id="bgShader" class="bg-shader" aria-hidden="true"></canvas>
+  <div class="eyebrow" style="justify-content:center" data-reveal>05 — Let's build</div>
+  <h2 data-reveal data-delay="1">Got a brand worth <em>remembering?</em></h2>
+  <p class="lead" data-reveal data-delay="2">Websites, motion, or both — tell me what you're building and let's make it impossible to ignore.</p>
+  <a href="mailto:sujalhere0@gmail.com" class="contact-mail" data-reveal data-delay="2">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+    sujalhere0@gmail.com
+  </a>
+  <div class="socials" data-reveal data-delay="3">
+    <a href="https://www.linkedin.com/in/connectwithsujal" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="mailto:sujalhere0@gmail.com">Email ↗</a>
+    <!-- Add Behance / Instagram / Dribbble links here when ready -->
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="foot-cta" data-reveal>
+      <div class="foot-cta-left">
+        <span class="eyebrow">Open for new projects</span>
+        <a href="mailto:sujalhere0@gmail.com" class="foot-big">
+          Let's make something
+          <span class="foot-big-row">
+            <em>unforgettable</em>
+            <svg class="foot-arrow" viewBox="0 0 24 24" width="0.9em" height="0.9em" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-grid">
+      <div class="foot-brand" data-reveal>
+        <a href="#top" class="brand" aria-label="sujalhere — Creative Studio">
+          <span class="wm-ser">sujal</span><span class="wm-bld">here</span>
+          <small>Creative Studio</small>
+        </a>
+        <p>A lean creative studio crafting websites and motion / UGC commercials for brands worldwide.</p>
+        <div class="foot-status"><span class="pulse"></span> Available worldwide</div>
+      </div>
+
+      <nav class="foot-col" data-reveal data-delay="1" aria-label="Sections">
+        <span class="foot-h">Explore</span>
+        <a href="work.html">Web Design</a>
+        <a href="motion.html">Motion &amp; UGC</a>
+        <a href="#about">About</a>
+        <a href="#skills">Capabilities</a>
+        <a href="#certs">Credentials</a>
+      </nav>
+
+      <nav class="foot-col" data-reveal data-delay="2" aria-label="Connect">
+        <span class="foot-h">Connect</span>
+        <a href="mailto:sujalhere0@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/connectwithsujal" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <!-- Add Behance / Instagram / Dribbble when ready -->
+        <a href="#contact">Start a project</a>
+      </nav>
+
+      <div class="foot-col foot-say" data-reveal data-delay="3">
+        <span class="foot-h">Say hello</span>
+        <a href="mailto:sujalhere0@gmail.com" class="foot-mail">sujalhere0@gmail.com</a>
+        <p>Replies within a day, wherever you are.</p>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 Sujal Kumar Kushwaha</span>
+      <span class="foot-made">Web Design · Motion · UGC</span>
+      <a href="#top" class="to-top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+
+  </div>
+</footer>
+
+<script src="js/beams.js"></script>
+<script src="js/shader.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
