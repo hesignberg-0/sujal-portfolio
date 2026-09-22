@@ -195,7 +195,7 @@ html.static .loader { display: none; }
 .card-dark { box-shadow: 0 40px 70px -30px rgba(0,0,0,.85), inset 0 0 0 1px rgba(255,255,255,.4); }
 .card-top { display: flex; justify-content: space-between; font: 500 12px/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; opacity: .75; }
 .card-glyph { flex: 1; display: grid; place-items: center; }
-.card-glyph svg { width: 46%; height: auto; }
+.card-glyph svg { width: 42%; height: auto; filter: drop-shadow(0 10px 24px rgba(0,0,0,.35)); }
 .card h4 { font: 500 clamp(26px, 2.5vw, 40px)/1 var(--display); letter-spacing: -.035em; }
 .card p { margin-top: 8px; font: 400 13px/1.4 var(--sans); opacity: .8; }
 .js:not(.static) .card:not(.is-active) { filter: brightness(.45); }

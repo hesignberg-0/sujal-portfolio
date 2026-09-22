@@ -256,23 +256,26 @@
     c.classList.toggle('is-active', Math.abs(off) < .5);
   });
   decks.forEach((_, k) => lay(k));
-  const [sub1, sub2] = $$('.tk-sub h3');
-  G.set(decks[1], { autoAlpha: 0, y: '45vh' });
-  G.set(sub2, { autoAlpha: 0, yPercent: 70 });
+  const subs = $$('.tk-sub h3');
+  G.set(decks.slice(1), { autoAlpha: 0, y: '45vh' });
+  G.set(subs.slice(1), { autoAlpha: 0, yPercent: 70 });
 
-  const n0 = deckCards[0].length, n1 = deckCards[1].length;
-  G.timeline({
-    scrollTrigger: { trigger: '.toolkit', start: 'top top', end: () => '+=' + innerHeight * (n0 + n1) * .75, scrub: .8, pin: true, invalidateOnRefresh: true }
-  })
-    .to({}, { duration: .3 })
-    .to(state[0], { p: n0 - 1, duration: n0 - 1, ease: 'none', onUpdate: () => lay(0) })
-    .to({}, { duration: .4 })
-    .to(decks[0], { autoAlpha: 0, y: '45vh', duration: .8, ease: 'power2.in' })
-    .to(sub1, { autoAlpha: 0, yPercent: -70, duration: .5 }, '<')
-    .to(decks[1], { autoAlpha: 1, y: 0, duration: .8, ease: 'power3.out' }, '>-.2')
-    .to(sub2, { autoAlpha: 1, yPercent: 0, duration: .5 }, '<.1')
-    .to(state[1], { p: n1 - 1, duration: n1 - 1, ease: 'none', onUpdate: () => lay(1) })
-    .to({}, { duration: .4 });
+  // each deck turns through its cards, then hands over to the next deck + subtitle
+  const totalCards = deckCards.reduce((sum, c) => sum + c.length, 0);
+  const tk = G.timeline({
+    scrollTrigger: { trigger: '.toolkit', start: 'top top', end: () => '+=' + innerHeight * totalCards * .55, scrub: .8, pin: true, invalidateOnRefresh: true }
+  }).to({}, { duration: .3 });
+  decks.forEach((deck, k) => {
+    const n = deckCards[k].length;
+    if (k > 0) {
+      tk.to(decks[k - 1], { autoAlpha: 0, y: '45vh', duration: .8, ease: 'power2.in' })
+        .to(subs[k - 1], { autoAlpha: 0, yPercent: -70, duration: .5 }, '<')
+        .to(deck, { autoAlpha: 1, y: 0, duration: .8, ease: 'power3.out' }, '>-.2')
+        .to(subs[k], { autoAlpha: 1, yPercent: 0, duration: .5 }, '<.1');
+    }
+    tk.to(state[k], { p: n - 1, duration: n - 1, ease: 'none', onUpdate: () => lay(k) })
+      .to({}, { duration: .4 });
+  });
 
   /* ---------- credentials rise in ---------- */
   G.from('.creds-list li', {
