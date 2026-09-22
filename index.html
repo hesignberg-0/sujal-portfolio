@@ -1,379 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sujal Kushwaha — Product Design & AI</title>
-<meta name="description" content="Sujal Kushwaha — a student designer exploring product design and AI. Always learning, always building." />
-
-<!-- Open Graph -->
-<meta property="og:title" content="Sujal Kushwaha — Product Design & AI" />
+<title>Sujal Kushwaha | Product Design &amp; AI</title>
+<meta name="description" content="Sujal Kushwaha, a student designer exploring product design and AI. Always learning, always building." />
+<meta property="og:title" content="Sujal Kushwaha | Product Design &amp; AI" />
 <meta property="og:description" content="A student designer exploring product design and AI." />
 <meta property="og:type" content="website" />
+<meta name="theme-color" content="#F5E7DF" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FF3D1F'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%23F5E7DF'%3Esk%3C/text%3E%3C/svg%3E" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" />
 <link rel="stylesheet" href="css/style.css" />
-<!-- mark JS active + lock scroll for the intro before first paint (no flash) -->
-<script>
-  document.documentElement.classList.add('js');
-  try {
-    if (!sessionStorage.getItem('introSeen') &&
-        !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.documentElement.classList.add('intro-lock');
-    }
-  } catch (e) {}
-</script>
+<script>document.documentElement.classList.add('js');</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
 </head>
 <body>
 
-<!-- ============ INTRO OVERLAY (logo reveal) ============ -->
-<div class="intro" id="intro" role="presentation">
-  <div class="intro-logo">
-    <div class="intro-wm" aria-label="sujalhere">
-      <span class="wm-ser" data-split>sujal</span><span class="wm-bld" data-split>here</span>
-    </div>
-    <div class="intro-tag" data-split>Product Designer</div>
-  </div>
-</div>
+<!-- loader: monogram on cream, then wipes up -->
+<div class="loader" aria-hidden="true"><span class="loader-mono">sk</span></div>
 
-<canvas id="beams" aria-hidden="true"></canvas>
-<div class="grain" aria-hidden="true"></div>
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"></div>
-
-<!-- ============ NAV ============ -->
-<header class="nav" id="nav">
-  <a href="#top" class="brand" aria-label="Sujal Kushwaha — Product Designer">
-    <span class="wm-ser">sujal</span><span class="wm-bld">here</span>
-    <small>Product Designer</small>
-  </a>
-  <nav class="nav-links" id="navLinks">
-    <a href="#about">About</a>
-    <a href="mailto:sujalhere0@gmail.com" class="btn btn-primary nav-cta">Let's talk <span class="arr">→</span></a>
+<header class="site-header">
+  <a class="logo" href="#top" aria-label="Back to top">sk</a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#journey">journey</a>
+    <a href="#toolkit">toolkit</a>
+    <a href="#credentials">credentials</a>
+    <a href="#contact">contact</a>
   </nav>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span></button>
 </header>
+
+<div class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
 <main id="top">
 
-<!-- ============ HERO (minimal) ============ -->
-<section class="hero-min" id="home">
-  <div class="wrap mh">
+  <!-- ============ HERO ============ -->
+  <section class="hero" data-theme="dark">
+    <div class="hero-scale">
+      <div class="hero-frame">
+        <canvas class="hero-gl" aria-hidden="true"></canvas>
+        <div class="grain" aria-hidden="true"></div>
 
-    <div class="mh-top" data-reveal>
-      <span class="eyebrow">Product Design · AI · Always learning</span>
-    </div>
-
-    <!-- editorial split: words flank the portrait. The real, readable heading is
-         the sr-only <h1>; the flanking words are decorative + animated. -->
-    <div class="mh-stage">
-      <h1 class="sr-only">Designing, building, always learning.</h1>
-
-      <div class="mh-words mh-left" data-reveal aria-hidden="true">
-        <span class="w">Design,</span>
-        <span class="w">AI,</span>
-      </div>
-
-      <div class="mh-photo" data-reveal>
-        <span class="mh-ring" aria-hidden="true"></span>
-        <img src="assets/portrait.png" alt="Sujal Kushwaha" />
-      </div>
-
-      <div class="mh-words mh-right" data-reveal aria-hidden="true">
-        <span class="w">always</span>
-        <span class="w accent">learning.</span>
-      </div>
-    </div>
-
-    <div class="mh-foot" data-reveal>
-      <span class="mh-loc"><span class="pulse"></span> Open to opportunities</span>
-      <a href="#about" class="mh-scroll">About me <span aria-hidden="true">↓</span></a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ ABOUT ============ -->
-<section class="pad wrap" id="about">
-  <div class="about-grid">
-    <div class="about-photo" data-reveal data-tilt>
-      <img src="assets/about.png" alt="Sujal Kumar Kushwaha" />
-    </div>
-    <div class="about-copy" data-reveal data-delay="1">
-      <div class="eyebrow" style="margin-bottom:22px">Who's behind the work</div>
-      <p>I'm <b>Sujal Kumar Kushwaha</b> — a student and designer exploring the intersection of <b>design, technology and AI</b>. I spend my time learning by building: interfaces, small products, and experiments with AI.</p>
-      <p>My process is properly user-centered: research, define, design, test — then ship. A background in business administration and years organising large-scale events taught me how to read an audience and deliver under pressure, whatever the timezone.</p>
-      <blockquote class="about-quote">Always learning. Always curious. Always creating.</blockquote>
-      <div class="about-list">
-        <div class="it"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Product &amp; UI design</div>
-        <div class="it"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Building &amp; experimenting with AI</div>
-        <div class="it"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Prototyping &amp; design systems</div>
-        <div class="it"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Always learning something new</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SKILLS ============ -->
-<section class="pad wrap" id="skills">
-  <div class="section-head" data-reveal>
-    <div class="eyebrow">01 — Capabilities</div>
-    <h2>Tools &amp; <em>craft</em></h2>
-    <p class="lead">The kit and methods behind every project — from whiteboard to high-fidelity build.</p>
-  </div>
-
-  <!-- TOOLS — icon, professional descriptor, animated proficiency bar -->
-  <div class="cap-label" data-reveal>The toolkit</div>
-  <div class="cap-tools">
-    <article class="tool" data-reveal style="--lvl:78%">
-      <div class="tool-ic">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3h3v6H9a3 3 0 1 1 0-6Z"/><path d="M12 3h0a3 3 0 1 1 0 6"/><path d="M9 9h3v6H9a3 3 0 1 1 0-6Z"/><circle cx="15" cy="12" r="3"/><path d="M9 15h3a3 3 0 1 1-3 3v-3Z"/></svg>
-      </div>
-      <div class="tool-meta">
-        <div class="tool-name">Figma <span class="tool-tag">Interface &amp; prototyping</span></div>
-        <p>Wireframes, hi-fidelity prototypes, auto-layout and scalable design systems.</p>
-        <div class="bar"><span></span></div>
-      </div>
-    </article>
-
-    <article class="tool" data-reveal data-delay="1" style="--lvl:72%">
-      <div class="tool-ic">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
-      </div>
-      <div class="tool-meta">
-        <div class="tool-name">Miro <span class="tool-tag">Research &amp; mapping</span></div>
-        <p>Affinity maps, user-journey maps and collaborative discovery workshops.</p>
-        <div class="bar"><span></span></div>
-      </div>
-    </article>
-
-    <article class="tool" data-reveal data-delay="2" style="--lvl:90%">
-      <div class="tool-ic">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M15.5 9.5a3.5 3.5 0 1 0 0 5"/></svg>
-      </div>
-      <div class="tool-meta">
-        <div class="tool-name">Canva <span class="tool-tag">Rapid visual production</span></div>
-        <p>Fast, on-brand visuals — decks, posters, social creative and certificates.</p>
-        <div class="bar"><span></span></div>
-      </div>
-    </article>
-
-    <article class="tool" data-reveal data-delay="3" style="--lvl:88%">
-      <div class="tool-ic">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8l8 8M8 8v8M16 8v8"/></svg>
-      </div>
-      <div class="tool-meta">
-        <div class="tool-name">Notion <span class="tool-tag">Systems &amp; documentation</span></div>
-        <p>Design documentation, living systems and a self-managed portfolio.</p>
-        <div class="bar"><span></span></div>
-      </div>
-    </article>
-  </div>
-
-  <div class="cap-bottom">
-    <!-- UX METHODS — animated dual marquee -->
-    <div class="cap-methods" data-reveal>
-      <div class="cap-label">UX methods I run</div>
-      <div class="method-marquee">
-        <div class="method-track">
-          <span class="m">User Research</span><span class="m">Personas</span><span class="m">Empathy Mapping</span><span class="m">Affinity Mapping</span><span class="m">Problem Framing</span><span class="m">HMW Questions</span>
-          <span class="m">User Research</span><span class="m">Personas</span><span class="m">Empathy Mapping</span><span class="m">Affinity Mapping</span><span class="m">Problem Framing</span><span class="m">HMW Questions</span>
+        <div class="hero-content">
+          <h1 class="hero-name">
+            <span class="sr-only">Sujal Kushwaha, a student designer exploring product design and AI</span>
+            <span class="line" aria-hidden="true"><span class="split">sujal</span></span>
+            <span class="line" aria-hidden="true"><span class="split">kushwaha</span></span>
+          </h1>
+          <div class="mono" aria-hidden="true">
+            <div class="mono-tilt"><div class="mono-inner" data-mono="sk"></div></div>
+          </div>
         </div>
-        <div class="method-track rev">
-          <span class="m">Wireframing</span><span class="m">Lo-fi &amp; Hi-fi Prototyping</span><span class="m">Usability Testing</span><span class="m">Journey Mapping</span><span class="m">Design Systems</span><span class="m">Hypothesis Testing</span>
-          <span class="m">Wireframing</span><span class="m">Lo-fi &amp; Hi-fi Prototyping</span><span class="m">Usability Testing</span><span class="m">Journey Mapping</span><span class="m">Design Systems</span><span class="m">Hypothesis Testing</span>
-        </div>
+
+        <p class="hero-meta"><span>Student designer</span><span>Product design &amp; AI</span></p>
       </div>
     </div>
+  </section>
 
-    <!-- STRENGTHS — statement cards -->
-    <div class="cap-strengths">
-      <article class="strength" data-reveal>
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v6m0 6v6M3 12h6m6 0h6"/><circle cx="12" cy="12" r="3"/></svg>
-        <h4>Systems Thinking</h4>
-        <p>Breaking messy, complex problems into clear, solvable design challenges.</p>
-      </article>
-      <article class="strength" data-reveal data-delay="1">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <h4>Leadership</h4>
-        <p>Running a team and coordinating large-scale events under live pressure.</p>
-      </article>
-      <article class="strength" data-reveal data-delay="2">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 19l7-7 3 3-7 7-3-3Z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5Z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-        <h4>Visual Communication</h4>
-        <p>Telling brand stories through type, layout, art direction and motion.</p>
-      </article>
+  <!-- ============ MANIFESTO ============ -->
+  <section class="manifesto" data-theme="light">
+    <p class="manifesto-text">I design interfaces and learn AI by building with it.</p>
+  </section>
+
+  <!-- ============ JOURNEY ============ -->
+  <section class="journey" id="journey" data-theme="dark">
+    <div class="j-entry">
+      <h2 class="j-title"><span class="line"><span class="split">My journey</span></span></h2>
     </div>
-  </div>
-</section>
 
-<!-- ============ CERTS / CREDENTIALS ============ -->
-<section class="pad wrap" id="certs">
-  <div class="section-head" data-reveal>
-    <div class="eyebrow">02 — Credentials</div>
-    <h2>The <em>journey</em> so far</h2>
-    <p class="lead">Education, certification and leadership — the path that shaped how I design and lead.</p>
-  </div>
+    <div class="j-sentences">
+      <div class="j-visual j-left" aria-hidden="true"><img src="assets/about.png" alt="" /></div>
+      <div class="j-visual j-right"><img src="assets/portrait.png" alt="Sujal Kushwaha" /></div>
 
-  <div class="cert-head" data-reveal>
-    <div class="cert-badge">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M8.5 13 7 22l5-3 5 3-1.5-9"/></svg>
-      <div class="g">Google UX Design — Professional Certificate <span>Completed May 2026 · 8-course program</span></div>
+      <div class="j-center">
+        <p class="sentence small">First</p>
+        <p class="sentence">business<br />school.</p>
+        <p class="sentence small">Then</p>
+        <p class="sentence">UX<br />design.</p>
+        <p class="sentence small">Now</p>
+        <p class="sentence">design<br />meets AI.</p>
+      </div>
     </div>
-    <a href="https://coursera.org/verify/professional-cert/AFQLJDCSKC3D" target="_blank" rel="noopener" class="btn btn-ghost">Verify certificate ↗</a>
-  </div>
+  </section>
 
-  <!-- JOURNEY TIMELINE — education, certification & leadership, expanded -->
-  <ol class="timeline">
-    <li class="tl-item" data-reveal>
-      <div class="tl-rail"><span class="tl-dot"></span></div>
-      <div class="tl-card">
-        <div class="tl-head">
-          <span class="tl-kind">Education</span>
-          <span class="tl-year">2025 — Present</span>
-        </div>
-        <h4>Symbiosis International University</h4>
-        <p>Bachelor of Business Administration — Information Technology (Honours). Building the bridge between business strategy, technology and human-centered design.</p>
-        <div class="tl-tags"><span>Business</span><span>Information Technology</span></div>
+  <!-- ============ TOOLKIT ============ -->
+  <section class="toolkit" id="toolkit" data-theme="dark">
+    <div class="tk-head">
+      <h2 class="tk-title">Toolkit</h2>
+      <div class="tk-sub"><h3>Design</h3><h3>AI &amp; build</h3></div>
+    </div>
+
+    <div class="decks">
+      <div class="deck" aria-label="Design tools">
+        <article class="card" style="--c1:#FF2A00;--c2:#FF8A3D">
+          <div class="card-top"><span>01</span><span>Design</span></div>
+          <div class="card-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M9 3h3v6H9a3 3 0 1 1 0-6Z"/><path d="M12 3a3 3 0 1 1 0 6"/><path d="M9 9h3v6H9a3 3 0 1 1 0-6Z"/><circle cx="15" cy="12" r="3"/><path d="M9 15h3v3a3 3 0 1 1-3-3Z"/></svg></div>
+          <div><h4>Figma</h4><p>Interfaces, prototypes and design systems.</p></div>
+        </article>
+        <article class="card" style="--c1:#FF5A00;--c2:#FFC15E">
+          <div class="card-top"><span>02</span><span>Design</span></div>
+          <div class="card-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg></div>
+          <div><h4>Miro</h4><p>Research maps, user journeys and workshops.</p></div>
+        </article>
+        <article class="card" style="--c1:#E0206B;--c2:#B05CFF">
+          <div class="card-top"><span>03</span><span>Design</span></div>
+          <div class="card-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="12" cy="12" r="9"/><path d="M15.5 9.2a3.6 3.6 0 1 0 0 5.6"/></svg></div>
+          <div><h4>Canva</h4><p>Fast visuals, decks and social posts.</p></div>
+        </article>
+        <article class="card card-light" style="--c1:#F5E7DF;--c2:#FFD2BF">
+          <div class="card-top"><span>04</span><span>Design</span></div>
+          <div class="card-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8.5 16.5v-9l7 9v-9"/></svg></div>
+          <div><h4>Notion</h4><p>Notes, docs and how I stay organised.</p></div>
+        </article>
       </div>
-    </li>
 
-    <li class="tl-item" data-reveal>
-      <div class="tl-rail"><span class="tl-dot"></span></div>
-      <div class="tl-card is-feature">
-        <div class="tl-head">
-          <span class="tl-kind accent">Certification</span>
-          <span class="tl-year">Completed May 2026</span>
-        </div>
-        <h4>Google UX Design — Professional Certificate</h4>
-        <p>The full 8-course program, end to end: foundations of UX, empathize–define–ideate, wireframing, UX research &amp; usability testing, high-fidelity design in Figma, dynamic UI for the web, and designing for social good.</p>
-        <div class="tl-tags"><span>User Research</span><span>Prototyping</span><span>Usability Testing</span><span>Figma</span></div>
-        <a href="https://coursera.org/verify/professional-cert/AFQLJDCSKC3D" target="_blank" rel="noopener" class="tl-verify">Verify the full certificate <span aria-hidden="true">↗</span></a>
+      <div class="deck" aria-label="AI tools">
+        <article class="card" style="--c1:#C8553A;--c2:#FF9A6B">
+          <div class="card-top"><span>01</span><span>AI</span></div>
+          <div class="card-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></div>
+          <div><h4>Claude</h4><p>My thinking partner for ideas and writing.</p></div>
+        </article>
+        <article class="card card-dark" style="--c1:#2A2626;--c2:#FF3D1F">
+          <div class="card-top"><span>02</span><span>AI</span></div>
+          <div class="card-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="m7 10 3 2.5L7 15M12.5 15h4.5"/></svg></div>
+          <div><h4>Claude Code</h4><p>Building real websites by talking to AI.</p></div>
+        </article>
+        <article class="card" style="--c1:#7B2FD0;--c2:#FF4F9A">
+          <div class="card-top"><span>03</span><span>AI</span></div>
+          <div class="card-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m10 9.2 5 2.8-5 2.8Z"/></svg></div>
+          <div><h4>Higgsfield</h4><p>Experimenting with AI video and motion.</p></div>
+        </article>
+        <article class="card" style="--c1:#FF3D1F;--c2:#C24CFF">
+          <div class="card-top"><span>04</span><span>AI</span></div>
+          <div class="card-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4Z"/><path d="M8 10.5h8"/></svg></div>
+          <div><h4>Prompting</h4><p>Learning to ask better questions.</p></div>
+        </article>
       </div>
-    </li>
+    </div>
+  </section>
 
-    <li class="tl-item" data-reveal>
-      <div class="tl-rail"><span class="tl-dot"></span></div>
-      <div class="tl-card">
-        <div class="tl-head">
-          <span class="tl-kind">Leadership</span>
-          <span class="tl-year">2024 — 2025</span>
+  <!-- ============ CREDENTIALS ============ -->
+  <section class="creds" id="credentials" data-theme="light">
+    <div class="creds-head">
+      <h2 class="creds-title">Credentials</h2>
+      <p>Education, certification and the roles that shaped how I work.</p>
+    </div>
+
+    <ol class="creds-list">
+      <li>
+        <a class="cred" href="https://coursera.org/verify/professional-cert/AFQLJDCSKC3D" target="_blank" rel="noopener">
+          <span class="cred-name">google ux design</span>
+          <span class="cred-meta"><span>Certificate</span><span>2026</span></span>
+          <span class="cred-desc"><span>Google UX Design Professional Certificate, all 8 courses: research, wireframing, usability testing and high fidelity design in Figma. <b>Verify it ↗</b></span></span>
+        </a>
+      </li>
+      <li>
+        <div class="cred" tabindex="0">
+          <span class="cred-name">symbiosis</span>
+          <span class="cred-meta"><span>Education</span><span>2025 to now</span></span>
+          <span class="cred-desc"><span>BBA in Information Technology (Honours) at Symbiosis International University, where business meets technology and design.</span></span>
         </div>
-        <h4>IT Head — The Avant-garde Literary Club</h4>
-        <p>Led technology and design for the club: built event systems, coordinated a team and kept everything shipping smoothly under live, high-pressure deadlines.</p>
-        <div class="tl-tags"><span>Team Coordination</span><span>Event Systems</span></div>
-      </div>
-    </li>
-
-    <li class="tl-item" data-reveal>
-      <div class="tl-rail"><span class="tl-dot"></span></div>
-      <div class="tl-card">
-        <div class="tl-head">
-          <span class="tl-kind">Leadership</span>
-          <span class="tl-year">2024</span>
+      </li>
+      <li>
+        <div class="cred" tabindex="0">
+          <span class="cred-name">avant-garde club</span>
+          <span class="cred-meta"><span>IT Head</span><span>2024 to 2025</span></span>
+          <span class="cred-desc"><span>Led tech and design for The Avant-garde Literary Club. Built event systems and kept a team shipping under live deadlines.</span></span>
         </div>
-        <h4>Event Organizer — “Poem Saga” &amp; “The Endless Horizon”</h4>
-        <p>Organised large-scale cultural events end to end — branding, logistics, run-of-show and the full audience experience, start to finish.</p>
-        <div class="tl-tags"><span>Branding</span><span>Logistics</span><span>Experience</span></div>
-      </div>
-    </li>
-
-    <li class="tl-item" data-reveal>
-      <div class="tl-rail"><span class="tl-dot"></span></div>
-      <div class="tl-card">
-        <div class="tl-head">
-          <span class="tl-kind">Education</span>
-          <span class="tl-year">2023 — 2025</span>
+      </li>
+      <li>
+        <div class="cred" tabindex="0">
+          <span class="cred-name">poem saga</span>
+          <span class="cred-meta"><span>Events</span><span>2024</span></span>
+          <span class="cred-desc"><span>Organised “Poem Saga” and “The Endless Horizon”: branding, logistics and the full audience experience, start to finish.</span></span>
         </div>
-        <h4>Global College of Management, Nepal</h4>
-        <p>+2 Management — Business Administration. Where the foundation in business and the curiosity for design first came together.</p>
-        <div class="tl-tags"><span>Management</span><span>Foundations</span></div>
-      </div>
-    </li>
-  </ol>
-</section>
+      </li>
+      <li>
+        <div class="cred" tabindex="0">
+          <span class="cred-name">global college</span>
+          <span class="cred-meta"><span>Education</span><span>2023 to 2025</span></span>
+          <span class="cred-desc"><span>+2 Management at Global College of Management, Nepal. Where business and a curiosity for design first met.</span></span>
+        </div>
+      </li>
+    </ol>
+  </section>
 
-<!-- ============ CONTACT ============ -->
-<section class="pad wrap contact" id="contact">
-  <!-- monochrome WebGL plasma backdrop — closing moment, behind the CTA -->
-  <canvas id="bgShader" class="bg-shader" aria-hidden="true"></canvas>
-  <div class="eyebrow" style="justify-content:center" data-reveal>03 — Let's connect</div>
-  <h2 data-reveal data-delay="1">Say <em>hello.</em></h2>
-  <p class="lead" data-reveal data-delay="2">Working on something, hiring, or just want to chat about design and AI — my inbox is always open.</p>
-  <a href="mailto:sujalhere0@gmail.com" class="contact-mail" data-reveal data-delay="2">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-    sujalhere0@gmail.com
-  </a>
-  <div class="socials" data-reveal data-delay="3">
-    <a href="https://www.linkedin.com/in/connectwithsujal" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <a href="mailto:sujalhere0@gmail.com">Email ↗</a>
-    <!-- Add Behance / Instagram / Dribbble links here when ready -->
-  </div>
-</section>
+  <!-- ============ WHAT'S NEXT ============ -->
+  <section class="next" data-theme="dark">
+    <div class="next-intro">
+      <p>What’s next?</p>
+      <a class="next-link" href="https://www.linkedin.com/in/connectwithsujal" target="_blank" rel="noopener">Follow along on LinkedIn <span aria-hidden="true">↗</span></a>
+    </div>
+    <svg class="next-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="ng" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stop-color="#FF2A00" />
+          <stop offset=".4" stop-color="#FF6B00" />
+          <stop offset=".7" stop-color="#FF3D7F" />
+          <stop offset="1" stop-color="#A445D8" />
+        </linearGradient>
+      </defs>
+      <path id="npath" d="M-160 760 C 240 300, 620 980, 960 520 S 1420 140, 1640 320" fill="none" />
+      <text><textPath id="ntp" href="#npath" startOffset="0"><tspan class="t-cream">keep learning, </tspan><tspan fill="url(#ng)">keep building.</tspan></textPath></text>
+      <circle id="norb" r="16" cx="-100" cy="-100" fill="url(#ng)" />
+    </svg>
+  </section>
 
 </main>
 
-<footer class="footer">
-  <div class="wrap">
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="contact" data-theme="dark">
+  <div class="foot-card">
+    <div class="grain" aria-hidden="true"></div>
 
-    <div class="foot-cta" data-reveal>
-      <div class="foot-cta-left">
-        <span class="eyebrow">Open to work</span>
-        <a href="mailto:sujalhere0@gmail.com" class="foot-big">
-          Let's make something
-          <span class="foot-big-row">
-            <em>unforgettable</em>
-            <svg class="foot-arrow" viewBox="0 0 24 24" width="0.9em" height="0.9em" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </a>
+    <div class="foot-top">
+      <p class="foot-head">Open to opportunities<br />to learn and build<br /><span>Design · AI · 2026</span></p>
+
+      <div class="foot-cols">
+        <nav aria-label="Explore">
+          <h4>Explore</h4>
+          <a href="#journey">Journey</a>
+          <a href="#toolkit">Toolkit</a>
+          <a href="#credentials">Credentials</a>
+        </nav>
+        <nav aria-label="Contact">
+          <h4>Contact</h4>
+          <a href="https://www.linkedin.com/in/connectwithsujal" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="mailto:sujalhere0@gmail.com">Email ↗</a>
+        </nav>
       </div>
     </div>
 
-    <div class="foot-grid">
-      <div class="foot-brand" data-reveal>
-        <a href="#top" class="brand" aria-label="Sujal Kushwaha — Product Designer">
-          <span class="wm-ser">sujal</span><span class="wm-bld">here</span>
-          <small>Product Designer</small>
-        </a>
-        <p>A student designer exploring product design and AI — always learning, always building.</p>
-        <div class="foot-status"><span class="pulse"></span> Open to opportunities</div>
-      </div>
-
-      <nav class="foot-col" data-reveal data-delay="1" aria-label="Sections">
-        <span class="foot-h">Explore</span>
-        <a href="#about">About</a>
-        <a href="#skills">Capabilities</a>
-        <a href="#certs">Credentials</a>
-      </nav>
-
-      <nav class="foot-col" data-reveal data-delay="2" aria-label="Connect">
-        <span class="foot-h">Connect</span>
-        <a href="mailto:sujalhere0@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/connectwithsujal" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <!-- Add Behance / Instagram / Dribbble when ready -->
-        <a href="#contact">Get in touch</a>
-      </nav>
-
-      <div class="foot-col foot-say" data-reveal data-delay="3">
-        <span class="foot-h">Say hello</span>
-        <a href="mailto:sujalhere0@gmail.com" class="foot-mail">sujalhere0@gmail.com</a>
-        <p>Replies within a day, wherever you are.</p>
-      </div>
-    </div>
+    <a class="foot-mail" href="mailto:sujalhere0@gmail.com">sujalhere0@gmail.com</a>
 
     <div class="foot-bottom">
-      <span>© 2026 Sujal Kumar Kushwaha</span>
-      <span class="foot-made">Product Design · AI · Learning</span>
-      <a href="#top" class="to-top">Back to top <span aria-hidden="true">↑</span></a>
+      <span>© 2026 Sujal Kushwaha</span>
+      <a href="#top">Back to top ↑</a>
     </div>
-
+    <p class="foot-big" aria-hidden="true">sujal kushwaha</p>
   </div>
 </footer>
 
-<script src="js/beams.js"></script>
-<script src="js/shader.js"></script>
-<script src="js/main.js"></script>
 </body>
 </html>
