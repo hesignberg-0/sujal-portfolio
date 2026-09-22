@@ -45,7 +45,7 @@
   const mono = $('.mono-inner');
   if (mono) {
     const t = mono.dataset.mono, N = 22;
-    const back = [70, 22, 118], near = [214, 118, 226]; // deep violet -> orchid
+    const back = [16, 16, 16], near = [150, 150, 150]; // near-black -> mid grey
     let h = `<span class="sizer">${t}</span>`;
     for (let i = N; i >= 1; i--) {
       const k = i / N;
@@ -89,11 +89,11 @@
         vec2 q=vec2(n(p*1.1+s),n(p*1.1+vec2(5.2,1.3)-s));
         float w=n(p*1.4+2.2*q+vec2(s*1.3,-s)+(m-.5)*.35);
         float v=uv.x*.72+uv.y*.38+w*.62-.2;
-        vec3 red=vec3(1.,.13,.02), org=vec3(1.,.42,.02), pnk=vec3(1.,.25,.5), vio=vec3(.62,.27,.86);
-        vec3 c=mix(red,org,smoothstep(.0,.36,v));
-        c=mix(c,pnk,smoothstep(.4,.7,v));
-        c=mix(c,vio,smoothstep(.72,1.02,v));
-        c+=.07*smoothstep(.35,.9,n(p*2.6-s*1.8));
+        vec3 g0=vec3(.045), g1=vec3(.11), g2=vec3(.22), g3=vec3(.38);
+        vec3 c=mix(g0,g1,smoothstep(.0,.36,v));
+        c=mix(c,g2,smoothstep(.4,.7,v));
+        c=mix(c,g3,smoothstep(.72,1.02,v));
+        c+=.045*smoothstep(.35,.9,n(p*2.6-s*1.8));
         gl_FragColor=vec4(c,1.);
       }`;
     const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return o; };
